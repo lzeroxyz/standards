@@ -47,7 +47,7 @@ contract Ownable {
         require(msg.sender != _owner, "Ownable: Caller is the owner");
         _;
     }
-^
+
     /**
      * @dev Transfers the ownership of the contract to a new address.
      */

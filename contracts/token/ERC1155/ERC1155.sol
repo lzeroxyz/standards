@@ -5,7 +5,7 @@ import "./IERC1155.sol";
 import "./IERC1155MetadataURI.sol";
 import "./IERC1155TokenReceiver.sol";
 
-import "../ERC165/ERC165.sol";
+import "../../ERC165/ERC165.sol";
 
 /// @title Minimalist standard ERC1155 implementation.
 contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
@@ -127,7 +127,7 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
 
         require(
             to.code.length == 0
-                ? IERC1155TokenReceiver(to).onERC1155BatchReceived(
+                ? IERC1155TokenReceiver(to).onERC1155Received(
                     msg.sender,
                     from,
                     id,
