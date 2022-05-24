@@ -35,10 +35,12 @@ describe('Ownable', () => {
     });
 
     it('Should emit the OwnershipTransferred event', () => {
-      expect(ownableContract.deployTransaction).to.emit(
-        ownableContract,
-        'OwnershipTransferred'
-      );
+      expect(ownableContract.deployTransaction)
+        .to.emit(ownableContract, 'OwnershipTransferred')
+        .withArgs(
+          '0x0000000000000000000000000000000000000000',
+          users.other1.address
+        );
     });
   });
 

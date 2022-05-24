@@ -41,6 +41,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.OwnableMock__factory>;
     getContractFactory(
+      name: "RoutableMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.RoutableMock__factory>;
+    getContractFactory(
+      name: "RoutableRouterMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.RoutableRouterMock__factory>;
+    getContractFactory(
       name: "Pausable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Pausable__factory>;
@@ -96,6 +104,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.OwnableMock>;
+    getContractAt(
+      name: "RoutableMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.RoutableMock>;
+    getContractAt(
+      name: "RoutableRouterMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.RoutableRouterMock>;
     getContractAt(
       name: "Pausable",
       address: string,

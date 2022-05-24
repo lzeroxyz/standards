@@ -3,63 +3,61 @@ pragma solidity >=0.4.22 <0.9.0;
 
 /// @dev Contract module that allows inheritant contracts to implement routing system from another smart contract
 contract Routable {
-    /**
-     * @dev Emitted when the router transfer is triggered
-     * @param previousRouter The previous router address
-     * @param newRouter The new router address
-     */
-    event RouterTransferred(
-        address indexed previousRouter,
-        address indexed newRouter
-    );
+  /**
+   * @dev Emitted when the router transfer is triggered
+   * @param previousRouter The previous router address
+   * @param newRouter The new router address
+   */
+  event RouterTransferred(address indexed previousRouter, address indexed newRouter);
 
-    address private _router;
+  address private _router;
 
-    /**
-     * @dev Initializes the contract setting the router address
-     */
-    constructor(address router) {
-        _router = router;
+  /**
+   * @dev Initializes the contract setting the router address
+   */
+  constructor(address router) {
+    _router = router;
 
-        emit RouterTransferred(address(0), router);
-    }
+    emit RouterTransferred(address(0), router);
+  }
 
-    /**
-     * @dev Returns the router address
-     */
-    function router() public view virtual returns (address) {
-        return _router;
-    }
+  /**
+   * @dev Returns the router address
+   */
+  function router() public view virtual returns (address) {
+    return _router;
+  }
 
-    /**
-     * @dev Throws if called by any contract other than the router.
-     */
-    modifier onlyRouter() {
-        require(msg.sender == _router, "Routable: Caller is not the router");
-        _;
-    }
+  /**
+   * @dev Throws if called by any contract other than the router.
+   */
+  modifier onlyRouter() {
+    require(msg.sender == _router, "Routable: Caller is not the router");
+    _;
+  }
 
-    /**
-     * @dev Throws if called by the router contract.
-     */
-    modifier notFromRouter() {
-        require(msg.sender != _router, "Routable: Caller is the router");
-        _;
-    }
+  /**
+   * @dev Throws if called by the router contract.
+   */
+  modifier notFromRouter() {
+    require(msg.sender != _router, "Routable: Caller is the router");
+    _;
+  }
 
-    /**
-     * @dev Change the router address
-     */
-    function _setRouter(address newRouter) internal virtual onlyRouter {
-        require(
-            newRouter.code.length > 0,
-            "Routable: New router is not a contract"
-        );
+  /**
+   * @dev Changes the router address
+   *      /!\ Warning /!\
+   *      This function is internal to the contract, and if used in a public function must be protected by a modifier such as onlyOwner
+   */
+  function _transferRouter(address newRouter) internal virtual {
+    require(newRouter != address(0), "Routable: New router is the zero address");
 
-        address oldRouter = _router;
+    require(newRouter.code.length > 0, "Routable: New router is not a contract");
 
-        _router = newRouter;
+    address oldRouter = _router;
 
-        emit RouterTransferred(oldRouter, newRouter);
-    }
+    _router = newRouter;
+
+    emit RouterTransferred(oldRouter, newRouter);
+  }
 }
