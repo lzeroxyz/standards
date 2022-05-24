@@ -37,6 +37,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IArbitrator__factory>;
     getContractFactory(
+      name: "OwnableMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OwnableMock__factory>;
+    getContractFactory(
       name: "Pausable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Pausable__factory>;
@@ -87,6 +91,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IArbitrator>;
+    getContractAt(
+      name: "OwnableMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.OwnableMock>;
     getContractAt(
       name: "Pausable",
       address: string,

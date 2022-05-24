@@ -174,7 +174,19 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    "balanceOf(address,uint256)"(
+      _owner: string,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
+
     balanceOfBatch(
+      _owners: string[],
+      _ids: BigNumberish[],
+      overrides?: CallOverrides
+    ): Promise<[BigNumber[]]>;
+
+    "balanceOfBatch(address[],uint256[])"(
       _owners: string[],
       _ids: BigNumberish[],
       overrides?: CallOverrides
@@ -186,7 +198,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
+    "isApprovedForAll(address,address)"(
+      _owner: string,
+      _operator: string,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     safeBatchTransferFrom(
+      _from: string,
+      _to: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
       _from: string,
       _to: string,
       _ids: BigNumberish[],
@@ -204,7 +231,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+      _from: string,
+      _to: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     setApprovalForAll(
+      _operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "setApprovalForAll(address,bool)"(
       _operator: string,
       _approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -215,10 +257,26 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
+    "supportsInterface(bytes4)"(
+      interfaceID: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     uri(id: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+
+    "uri(uint256)"(
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
   };
 
   balanceOf(
+    _owner: string,
+    _id: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  "balanceOf(address,uint256)"(
     _owner: string,
     _id: BigNumberish,
     overrides?: CallOverrides
@@ -230,13 +288,34 @@ export interface IERC1155MetadataURI extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber[]>;
 
+  "balanceOfBatch(address[],uint256[])"(
+    _owners: string[],
+    _ids: BigNumberish[],
+    overrides?: CallOverrides
+  ): Promise<BigNumber[]>;
+
   isApprovedForAll(
     _owner: string,
     _operator: string,
     overrides?: CallOverrides
   ): Promise<boolean>;
 
+  "isApprovedForAll(address,address)"(
+    _owner: string,
+    _operator: string,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   safeBatchTransferFrom(
+    _from: string,
+    _to: string,
+    _ids: BigNumberish[],
+    _values: BigNumberish[],
+    _data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
     _from: string,
     _to: string,
     _ids: BigNumberish[],
@@ -254,7 +333,22 @@ export interface IERC1155MetadataURI extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+    _from: string,
+    _to: string,
+    _id: BigNumberish,
+    _value: BigNumberish,
+    _data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   setApprovalForAll(
+    _operator: string,
+    _approved: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "setApprovalForAll(address,bool)"(
     _operator: string,
     _approved: boolean,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -265,10 +359,23 @@ export interface IERC1155MetadataURI extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
+  "supportsInterface(bytes4)"(
+    interfaceID: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+  "uri(uint256)"(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
     balanceOf(
+      _owner: string,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "balanceOf(address,uint256)"(
       _owner: string,
       _id: BigNumberish,
       overrides?: CallOverrides
@@ -280,13 +387,34 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber[]>;
 
+    "balanceOfBatch(address[],uint256[])"(
+      _owners: string[],
+      _ids: BigNumberish[],
+      overrides?: CallOverrides
+    ): Promise<BigNumber[]>;
+
     isApprovedForAll(
       _owner: string,
       _operator: string,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    "isApprovedForAll(address,address)"(
+      _owner: string,
+      _operator: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
     safeBatchTransferFrom(
+      _from: string,
+      _to: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
       _from: string,
       _to: string,
       _ids: BigNumberish[],
@@ -304,7 +432,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+      _from: string,
+      _to: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     setApprovalForAll(
+      _operator: string,
+      _approved: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "setApprovalForAll(address,bool)"(
       _operator: string,
       _approved: boolean,
       overrides?: CallOverrides
@@ -315,7 +458,17 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    "supportsInterface(bytes4)"(
+      interfaceID: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
     uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+    "uri(uint256)"(
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
   };
 
   filters: {
@@ -374,7 +527,19 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "balanceOf(address,uint256)"(
+      _owner: string,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     balanceOfBatch(
+      _owners: string[],
+      _ids: BigNumberish[],
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "balanceOfBatch(address[],uint256[])"(
       _owners: string[],
       _ids: BigNumberish[],
       overrides?: CallOverrides
@@ -386,7 +551,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "isApprovedForAll(address,address)"(
+      _owner: string,
+      _operator: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     safeBatchTransferFrom(
+      _from: string,
+      _to: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
       _from: string,
       _to: string,
       _ids: BigNumberish[],
@@ -404,7 +584,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+      _from: string,
+      _to: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     setApprovalForAll(
+      _operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "setApprovalForAll(address,bool)"(
       _operator: string,
       _approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -415,7 +610,17 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "supportsInterface(bytes4)"(
+      interfaceID: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     uri(id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+
+    "uri(uint256)"(
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -425,7 +630,19 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "balanceOf(address,uint256)"(
+      _owner: string,
+      _id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     balanceOfBatch(
+      _owners: string[],
+      _ids: BigNumberish[],
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "balanceOfBatch(address[],uint256[])"(
       _owners: string[],
       _ids: BigNumberish[],
       overrides?: CallOverrides
@@ -437,7 +654,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "isApprovedForAll(address,address)"(
+      _owner: string,
+      _operator: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     safeBatchTransferFrom(
+      _from: string,
+      _to: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
       _from: string,
       _to: string,
       _ids: BigNumberish[],
@@ -455,7 +687,22 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+      _from: string,
+      _to: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     setApprovalForAll(
+      _operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "setApprovalForAll(address,bool)"(
       _operator: string,
       _approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -466,7 +713,17 @@ export interface IERC1155MetadataURI extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "supportsInterface(bytes4)"(
+      interfaceID: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     uri(
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "uri(uint256)"(
       id: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

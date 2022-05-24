@@ -77,6 +77,12 @@ export interface IArbitrable extends BaseContract {
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    "rule(uint256,uint256)"(
+      _disputeID: BigNumberish,
+      _ruling: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
   rule(
@@ -85,8 +91,20 @@ export interface IArbitrable extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "rule(uint256,uint256)"(
+    _disputeID: BigNumberish,
+    _ruling: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
     rule(
+      _disputeID: BigNumberish,
+      _ruling: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "rule(uint256,uint256)"(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: CallOverrides
@@ -112,10 +130,22 @@ export interface IArbitrable extends BaseContract {
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
+
+    "rule(uint256,uint256)"(
+      _disputeID: BigNumberish,
+      _ruling: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     rule(
+      _disputeID: BigNumberish,
+      _ruling: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "rule(uint256,uint256)"(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }

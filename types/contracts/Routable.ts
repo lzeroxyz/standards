@@ -68,12 +68,18 @@ export interface Routable extends BaseContract {
 
   functions: {
     router(overrides?: CallOverrides): Promise<[string]>;
+
+    "router()"(overrides?: CallOverrides): Promise<[string]>;
   };
 
   router(overrides?: CallOverrides): Promise<string>;
 
+  "router()"(overrides?: CallOverrides): Promise<string>;
+
   callStatic: {
     router(overrides?: CallOverrides): Promise<string>;
+
+    "router()"(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
@@ -89,9 +95,13 @@ export interface Routable extends BaseContract {
 
   estimateGas: {
     router(overrides?: CallOverrides): Promise<BigNumber>;
+
+    "router()"(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     router(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    "router()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

@@ -147,7 +147,19 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "appeal(uint256,bytes)"(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     appealCost(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { cost: BigNumber }>;
+
+    "appealCost(uint256,bytes)"(
       _disputeID: BigNumberish,
       _extraData: BytesLike,
       overrides?: CallOverrides
@@ -158,7 +170,17 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
 
+    "appealPeriod(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
+
     arbitrationCost(
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { cost: BigNumber }>;
+
+    "arbitrationCost(bytes)"(
       _extraData: BytesLike,
       overrides?: CallOverrides
     ): Promise<[BigNumber] & { cost: BigNumber }>;
@@ -169,12 +191,28 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "createDispute(uint256,bytes)"(
+      _choices: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     currentRuling(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[BigNumber] & { ruling: BigNumber }>;
 
+    "currentRuling(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { ruling: BigNumber }>;
+
     disputeStatus(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[number] & { status: number }>;
+
+    "disputeStatus(uint256)"(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[number] & { status: number }>;
@@ -186,7 +224,19 @@ export interface IArbitrator extends BaseContract {
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "appeal(uint256,bytes)"(
+    _disputeID: BigNumberish,
+    _extraData: BytesLike,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   appealCost(
+    _disputeID: BigNumberish,
+    _extraData: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  "appealCost(uint256,bytes)"(
     _disputeID: BigNumberish,
     _extraData: BytesLike,
     overrides?: CallOverrides
@@ -197,7 +247,17 @@ export interface IArbitrator extends BaseContract {
     overrides?: CallOverrides
   ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
 
+  "appealPeriod(uint256)"(
+    _disputeID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
+
   arbitrationCost(
+    _extraData: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
+  "arbitrationCost(bytes)"(
     _extraData: BytesLike,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
@@ -208,12 +268,28 @@ export interface IArbitrator extends BaseContract {
     overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "createDispute(uint256,bytes)"(
+    _choices: BigNumberish,
+    _extraData: BytesLike,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   currentRuling(
     _disputeID: BigNumberish,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
+  "currentRuling(uint256)"(
+    _disputeID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   disputeStatus(
+    _disputeID: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<number>;
+
+  "disputeStatus(uint256)"(
     _disputeID: BigNumberish,
     overrides?: CallOverrides
   ): Promise<number>;
@@ -225,7 +301,19 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    "appeal(uint256,bytes)"(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     appealCost(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "appealCost(uint256,bytes)"(
       _disputeID: BigNumberish,
       _extraData: BytesLike,
       overrides?: CallOverrides
@@ -236,7 +324,17 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
 
+    "appealPeriod(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber] & { start: BigNumber; end: BigNumber }>;
+
     arbitrationCost(
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "arbitrationCost(bytes)"(
       _extraData: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -247,12 +345,28 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "createDispute(uint256,bytes)"(
+      _choices: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     currentRuling(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "currentRuling(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     disputeStatus(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<number>;
+
+    "disputeStatus(uint256)"(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<number>;
@@ -294,7 +408,19 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "appeal(uint256,bytes)"(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     appealCost(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "appealCost(uint256,bytes)"(
       _disputeID: BigNumberish,
       _extraData: BytesLike,
       overrides?: CallOverrides
@@ -305,7 +431,17 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "appealPeriod(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     arbitrationCost(
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "arbitrationCost(bytes)"(
       _extraData: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -316,12 +452,28 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "createDispute(uint256,bytes)"(
+      _choices: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     currentRuling(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "currentRuling(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     disputeStatus(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "disputeStatus(uint256)"(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -334,7 +486,19 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "appeal(uint256,bytes)"(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     appealCost(
+      _disputeID: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "appealCost(uint256,bytes)"(
       _disputeID: BigNumberish,
       _extraData: BytesLike,
       overrides?: CallOverrides
@@ -345,7 +509,17 @@ export interface IArbitrator extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "appealPeriod(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     arbitrationCost(
+      _extraData: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "arbitrationCost(bytes)"(
       _extraData: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -356,12 +530,28 @@ export interface IArbitrator extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "createDispute(uint256,bytes)"(
+      _choices: BigNumberish,
+      _extraData: BytesLike,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     currentRuling(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "currentRuling(uint256)"(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     disputeStatus(
+      _disputeID: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "disputeStatus(uint256)"(
       _disputeID: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

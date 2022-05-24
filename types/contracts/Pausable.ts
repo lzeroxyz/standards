@@ -82,37 +82,69 @@ export interface Pausable extends BaseContract {
   functions: {
     _paused(overrides?: CallOverrides): Promise<[boolean]>;
 
+    "_paused()"(overrides?: CallOverrides): Promise<[boolean]>;
+
     pause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "pause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
 
+    "paused()"(overrides?: CallOverrides): Promise<[boolean]>;
+
     unpause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "unpause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
   _paused(overrides?: CallOverrides): Promise<boolean>;
 
+  "_paused()"(overrides?: CallOverrides): Promise<boolean>;
+
   pause(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "pause()"(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   paused(overrides?: CallOverrides): Promise<boolean>;
 
+  "paused()"(overrides?: CallOverrides): Promise<boolean>;
+
   unpause(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "unpause()"(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     _paused(overrides?: CallOverrides): Promise<boolean>;
 
+    "_paused()"(overrides?: CallOverrides): Promise<boolean>;
+
     pause(overrides?: CallOverrides): Promise<void>;
+
+    "pause()"(overrides?: CallOverrides): Promise<void>;
 
     paused(overrides?: CallOverrides): Promise<boolean>;
 
+    "paused()"(overrides?: CallOverrides): Promise<boolean>;
+
     unpause(overrides?: CallOverrides): Promise<void>;
+
+    "unpause()"(overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -126,13 +158,25 @@ export interface Pausable extends BaseContract {
   estimateGas: {
     _paused(overrides?: CallOverrides): Promise<BigNumber>;
 
+    "_paused()"(overrides?: CallOverrides): Promise<BigNumber>;
+
     pause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "pause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     paused(overrides?: CallOverrides): Promise<BigNumber>;
 
+    "paused()"(overrides?: CallOverrides): Promise<BigNumber>;
+
     unpause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "unpause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
@@ -140,13 +184,25 @@ export interface Pausable extends BaseContract {
   populateTransaction: {
     _paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    "_paused()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     pause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "pause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    "paused()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     unpause(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "unpause()"(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };

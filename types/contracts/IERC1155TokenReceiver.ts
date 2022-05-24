@@ -82,7 +82,25 @@ export interface IERC1155TokenReceiver extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"(
+      _operator: string,
+      _from: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     onERC1155Received(
+      _operator: string,
+      _from: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "onERC1155Received(address,address,uint256,uint256,bytes)"(
       _operator: string,
       _from: string,
       _id: BigNumberish,
@@ -101,7 +119,25 @@ export interface IERC1155TokenReceiver extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"(
+    _operator: string,
+    _from: string,
+    _ids: BigNumberish[],
+    _values: BigNumberish[],
+    _data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   onERC1155Received(
+    _operator: string,
+    _from: string,
+    _id: BigNumberish,
+    _value: BigNumberish,
+    _data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "onERC1155Received(address,address,uint256,uint256,bytes)"(
     _operator: string,
     _from: string,
     _id: BigNumberish,
@@ -120,7 +156,25 @@ export interface IERC1155TokenReceiver extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"(
+      _operator: string,
+      _from: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     onERC1155Received(
+      _operator: string,
+      _from: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "onERC1155Received(address,address,uint256,uint256,bytes)"(
       _operator: string,
       _from: string,
       _id: BigNumberish,
@@ -142,7 +196,25 @@ export interface IERC1155TokenReceiver extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"(
+      _operator: string,
+      _from: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     onERC1155Received(
+      _operator: string,
+      _from: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "onERC1155Received(address,address,uint256,uint256,bytes)"(
       _operator: string,
       _from: string,
       _id: BigNumberish,
@@ -162,7 +234,25 @@ export interface IERC1155TokenReceiver extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"(
+      _operator: string,
+      _from: string,
+      _ids: BigNumberish[],
+      _values: BigNumberish[],
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     onERC1155Received(
+      _operator: string,
+      _from: string,
+      _id: BigNumberish,
+      _value: BigNumberish,
+      _data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "onERC1155Received(address,address,uint256,uint256,bytes)"(
       _operator: string,
       _from: string,
       _id: BigNumberish,

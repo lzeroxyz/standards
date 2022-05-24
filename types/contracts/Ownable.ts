@@ -68,12 +68,18 @@ export interface Ownable extends BaseContract {
 
   functions: {
     owner(overrides?: CallOverrides): Promise<[string]>;
+
+    "owner()"(overrides?: CallOverrides): Promise<[string]>;
   };
 
   owner(overrides?: CallOverrides): Promise<string>;
 
+  "owner()"(overrides?: CallOverrides): Promise<string>;
+
   callStatic: {
     owner(overrides?: CallOverrides): Promise<string>;
+
+    "owner()"(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
@@ -89,9 +95,13 @@ export interface Ownable extends BaseContract {
 
   estimateGas: {
     owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    "owner()"(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    "owner()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }
