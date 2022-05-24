@@ -34,5 +34,8 @@
     "lint": "npx prettier --write **/*.{ts,sol}",
     "lint-contracts": "npx prettier --write contracts/**/*.sol",
     "lint-tests": "npx prettier --write test/**/*.sol"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
   }
 }

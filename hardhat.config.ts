@@ -1,20 +1,28 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomiclabs/hardhat-waffle";
-import "@typechain/hardhat";
-import "solidity-coverage";
+require('dotenv').config();
 
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
+import { HardhatUserConfig } from 'hardhat/config';
+import '@nomiclabs/hardhat-waffle';
+import '@typechain/hardhat';
+import 'solidity-coverage';
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.4",
+    version: '0.8.4',
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200,
+        runs: 1000,
       },
     },
+  },
+  networks: {
+    hardhat: {},
+  },
+  typechain: {
+    outDir: 'types/contracts',
+    target: 'ethers-v5',
+    alwaysGenerateOverloads: true,
+    externalArtifacts: ['externalArtifacts/*.json'],
   },
 };
 
