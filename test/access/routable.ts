@@ -1,10 +1,9 @@
 import { expect } from 'chai';
-import { create } from 'domain';
 import { Contract, ContractFactory, ContractTransaction } from 'ethers';
 import { ethers } from 'hardhat';
-import { Routable, RoutableRouterMock } from '../types/contracts';
-import { computeDeploymentAddresses } from '../helpers/contract-address';
-import { createUsers, users } from './utils';
+import { computeDeploymentAddresses } from '../../helpers/contract-address';
+import { Routable, RoutableRouterMock } from '../../types/contracts';
+import { createUsers, users } from '../utils';
 
 let contractAddresses: { [key: string]: string };
 

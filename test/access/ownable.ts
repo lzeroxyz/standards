@@ -1,9 +1,8 @@
 import { expect } from 'chai';
-import { create } from 'domain';
 import { Contract, ContractFactory, ContractTransaction } from 'ethers';
 import { ethers } from 'hardhat';
-import { Ownable, OwnableMock } from '../types/contracts';
-import { createUsers, users } from './utils';
+import { OwnableMock } from '../../types/contracts';
+import { createUsers, users } from '../utils';
 
 let ownableContract: Contract & OwnableMock;
 
