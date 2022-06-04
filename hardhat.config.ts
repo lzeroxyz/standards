@@ -1,9 +1,10 @@
 require('dotenv').config();
 
-import { HardhatUserConfig } from 'hardhat/config';
 import '@nomiclabs/hardhat-waffle';
 import '@typechain/hardhat';
+import { HardhatUserConfig } from 'hardhat/config';
 import 'solidity-coverage';
+import './tasks/accounts';
 
 const config: HardhatUserConfig = {
   solidity: {
