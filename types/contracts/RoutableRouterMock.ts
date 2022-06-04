@@ -9,33 +9,33 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface RoutableRouterMockInterface extends utils.Interface {
-  contractName: "RoutableRouterMock";
+  contractName: 'RoutableRouterMock';
   functions: {
-    "openFunction()": FunctionFragment;
-    "routedFunction()": FunctionFragment;
+    'openFunction()': FunctionFragment;
+    'routedFunction()': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "routedFunction",
+    functionFragment: 'routedFunction',
     values?: undefined
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "routedFunction",
+    functionFragment: 'routedFunction',
     data: BytesLike
   ): Result;
 
@@ -43,7 +43,7 @@ export interface RoutableRouterMockInterface extends utils.Interface {
 }
 
 export interface RoutableRouterMock extends BaseContract {
-  contractName: "RoutableRouterMock";
+  contractName: 'RoutableRouterMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -72,29 +72,29 @@ export interface RoutableRouterMock extends BaseContract {
   functions: {
     openFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'openFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
 
     routedFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
   };
 
   openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   routedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "routedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'routedFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
     openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
     routedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {};
@@ -102,21 +102,21 @@ export interface RoutableRouterMock extends BaseContract {
   estimateGas: {
     openFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'openFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     routedFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     openFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'openFunction()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     routedFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "routedFunction()"(
+    'routedFunction()'(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

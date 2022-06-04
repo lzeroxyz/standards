@@ -4,9 +4,10 @@
 import {
   BaseContract,
   BigNumber,
-  BigNumberish,
   BytesLike,
   CallOverrides,
+  ContractTransaction,
+  Overrides,
   PopulatedTransaction,
   Signer,
   utils,
@@ -15,26 +16,26 @@ import { FunctionFragment, Result } from '@ethersproject/abi';
 import { Listener, Provider } from '@ethersproject/providers';
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
-export interface IERC1155MetadataURIInterface extends utils.Interface {
-  contractName: 'IERC1155MetadataURI';
+export interface ERC1155NonReceiverMockInterface extends utils.Interface {
+  contractName: 'ERC1155NonReceiverMock';
   functions: {
-    'uri(uint256)': FunctionFragment;
+    'hello()': FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: 'uri', values: [BigNumberish]): string;
+  encodeFunctionData(functionFragment: 'hello', values?: undefined): string;
 
-  decodeFunctionResult(functionFragment: 'uri', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'hello', data: BytesLike): Result;
 
   events: {};
 }
 
-export interface IERC1155MetadataURI extends BaseContract {
-  contractName: 'IERC1155MetadataURI';
+export interface ERC1155NonReceiverMock extends BaseContract {
+  contractName: 'ERC1155NonReceiverMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: IERC1155MetadataURIInterface;
+  interface: ERC1155NonReceiverMockInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
@@ -56,47 +57,48 @@ export interface IERC1155MetadataURI extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    uri(id: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
+    hello(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
-    'uri(uint256)'(
-      id: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    'hello()'(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
-  uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  hello(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
-  'uri(uint256)'(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
+  'hello()'(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   callStatic: {
-    uri(id: BigNumberish, overrides?: CallOverrides): Promise<string>;
+    hello(overrides?: CallOverrides): Promise<string>;
 
-    'uri(uint256)'(
-      id: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    'hello()'(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {};
 
   estimateGas: {
-    uri(id: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
+    hello(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
-    'uri(uint256)'(
-      id: BigNumberish,
-      overrides?: CallOverrides
+    'hello()'(
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    uri(
-      id: BigNumberish,
-      overrides?: CallOverrides
+    hello(
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    'uri(uint256)'(
-      id: BigNumberish,
-      overrides?: CallOverrides
+    'hello()'(
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

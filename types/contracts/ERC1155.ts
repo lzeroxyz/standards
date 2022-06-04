@@ -12,104 +12,101 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface ERC1155Interface extends utils.Interface {
-  contractName: "ERC1155";
+  contractName: 'ERC1155';
   functions: {
-    "_approvals(address,address)": FunctionFragment;
-    "_balances(address,uint256)": FunctionFragment;
-    "balanceOf(address,uint256)": FunctionFragment;
-    "balanceOfBatch(address[],uint256[])": FunctionFragment;
-    "isApprovedForAll(address,address)": FunctionFragment;
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": FunctionFragment;
-    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
-    "setApprovalForAll(address,bool)": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
-    "uri(uint256)": FunctionFragment;
+    '_approvals(address,address)': FunctionFragment;
+    '_balances(address,uint256)': FunctionFragment;
+    'balanceOf(address,uint256)': FunctionFragment;
+    'balanceOfBatch(address[],uint256[])': FunctionFragment;
+    'isApprovedForAll(address,address)': FunctionFragment;
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)': FunctionFragment;
+    'safeTransferFrom(address,address,uint256,uint256,bytes)': FunctionFragment;
+    'setApprovalForAll(address,bool)': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "_approvals",
+    functionFragment: '_approvals',
     values: [string, string]
   ): string;
   encodeFunctionData(
-    functionFragment: "_balances",
+    functionFragment: '_balances',
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOf",
+    functionFragment: 'balanceOf',
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOfBatch",
+    functionFragment: 'balanceOfBatch',
     values: [string[], BigNumberish[]]
   ): string;
   encodeFunctionData(
-    functionFragment: "isApprovedForAll",
+    functionFragment: 'isApprovedForAll',
     values: [string, string]
   ): string;
   encodeFunctionData(
-    functionFragment: "safeBatchTransferFrom",
+    functionFragment: 'safeBatchTransferFrom',
     values: [string, string, BigNumberish[], BigNumberish[], BytesLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "safeTransferFrom",
+    functionFragment: 'safeTransferFrom',
     values: [string, string, BigNumberish, BigNumberish, BytesLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "setApprovalForAll",
+    functionFragment: 'setApprovalForAll',
     values: [string, boolean]
   ): string;
   encodeFunctionData(
-    functionFragment: "supportsInterface",
+    functionFragment: 'supportsInterface',
     values: [BytesLike]
   ): string;
-  encodeFunctionData(functionFragment: "uri", values: [BigNumberish]): string;
 
-  decodeFunctionResult(functionFragment: "_approvals", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "_balances", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: '_approvals', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: '_balances', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOf', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "balanceOfBatch",
+    functionFragment: 'balanceOfBatch',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "isApprovedForAll",
+    functionFragment: 'isApprovedForAll',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "safeBatchTransferFrom",
+    functionFragment: 'safeBatchTransferFrom',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "safeTransferFrom",
+    functionFragment: 'safeTransferFrom',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "setApprovalForAll",
+    functionFragment: 'setApprovalForAll',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "supportsInterface",
+    functionFragment: 'supportsInterface',
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "uri", data: BytesLike): Result;
 
   events: {
-    "ApprovalForAll(address,address,bool)": EventFragment;
-    "TransferBatch(address,address,address,uint256[],uint256[])": EventFragment;
-    "TransferSingle(address,address,address,uint256,uint256)": EventFragment;
-    "URI(string,uint256)": EventFragment;
+    'ApprovalForAll(address,address,bool)': EventFragment;
+    'TransferBatch(address,address,address,uint256[],uint256[])': EventFragment;
+    'TransferSingle(address,address,address,uint256,uint256)': EventFragment;
+    'URI(string,uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferBatch"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferSingle"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "URI"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'ApprovalForAll'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferBatch'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferSingle'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'URI'): EventFragment;
 }
 
 export type ApprovalForAllEvent = TypedEvent<
@@ -153,7 +150,7 @@ export type URIEvent = TypedEvent<
 export type URIEventFilter = TypedEventFilter<URIEvent>;
 
 export interface ERC1155 extends BaseContract {
-  contractName: "ERC1155";
+  contractName: 'ERC1155';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -186,7 +183,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    "_approvals(address,address)"(
+    '_approvals(address,address)'(
       arg0: string,
       arg1: string,
       overrides?: CallOverrides
@@ -198,7 +195,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    "_balances(address,uint256)"(
+    '_balances(address,uint256)'(
       arg0: string,
       arg1: BigNumberish,
       overrides?: CallOverrides
@@ -210,7 +207,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber] & { balance: BigNumber }>;
 
-    "balanceOf(address,uint256)"(
+    'balanceOf(address,uint256)'(
       owner: string,
       id: BigNumberish,
       overrides?: CallOverrides
@@ -222,7 +219,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber[]] & { balances: BigNumber[] }>;
 
-    "balanceOfBatch(address[],uint256[])"(
+    'balanceOfBatch(address[],uint256[])'(
       owners: string[],
       ids: BigNumberish[],
       overrides?: CallOverrides
@@ -234,7 +231,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    "isApprovedForAll(address,address)"(
+    'isApprovedForAll(address,address)'(
       account: string,
       operator: string,
       overrides?: CallOverrides
@@ -249,7 +246,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)'(
       from: string,
       to: string,
       ids: BigNumberish[],
@@ -267,7 +264,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+    'safeTransferFrom(address,address,uint256,uint256,bytes)'(
       from: string,
       to: string,
       id: BigNumberish,
@@ -282,7 +279,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "setApprovalForAll(address,bool)"(
+    'setApprovalForAll(address,bool)'(
       operator: string,
       approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -293,17 +290,10 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
-
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<[string]>;
-
-    "uri(uint256)"(
-      arg0: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
   };
 
   _approvals(
@@ -312,7 +302,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  "_approvals(address,address)"(
+  '_approvals(address,address)'(
     arg0: string,
     arg1: string,
     overrides?: CallOverrides
@@ -324,7 +314,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  "_balances(address,uint256)"(
+  '_balances(address,uint256)'(
     arg0: string,
     arg1: BigNumberish,
     overrides?: CallOverrides
@@ -336,7 +326,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  "balanceOf(address,uint256)"(
+  'balanceOf(address,uint256)'(
     owner: string,
     id: BigNumberish,
     overrides?: CallOverrides
@@ -348,7 +338,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber[]>;
 
-  "balanceOfBatch(address[],uint256[])"(
+  'balanceOfBatch(address[],uint256[])'(
     owners: string[],
     ids: BigNumberish[],
     overrides?: CallOverrides
@@ -360,7 +350,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  "isApprovedForAll(address,address)"(
+  'isApprovedForAll(address,address)'(
     account: string,
     operator: string,
     overrides?: CallOverrides
@@ -375,7 +365,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
+  'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)'(
     from: string,
     to: string,
     ids: BigNumberish[],
@@ -393,7 +383,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+  'safeTransferFrom(address,address,uint256,uint256,bytes)'(
     from: string,
     to: string,
     id: BigNumberish,
@@ -408,7 +398,7 @@ export interface ERC1155 extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "setApprovalForAll(address,bool)"(
+  'setApprovalForAll(address,bool)'(
     operator: string,
     approved: boolean,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -419,17 +409,10 @@ export interface ERC1155 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  "supportsInterface(bytes4)"(
+  'supportsInterface(bytes4)'(
     interfaceId: BytesLike,
     overrides?: CallOverrides
   ): Promise<boolean>;
-
-  uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-  "uri(uint256)"(
-    arg0: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<string>;
 
   callStatic: {
     _approvals(
@@ -438,7 +421,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    "_approvals(address,address)"(
+    '_approvals(address,address)'(
       arg0: string,
       arg1: string,
       overrides?: CallOverrides
@@ -450,7 +433,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "_balances(address,uint256)"(
+    '_balances(address,uint256)'(
       arg0: string,
       arg1: BigNumberish,
       overrides?: CallOverrides
@@ -462,7 +445,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "balanceOf(address,uint256)"(
+    'balanceOf(address,uint256)'(
       owner: string,
       id: BigNumberish,
       overrides?: CallOverrides
@@ -474,7 +457,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber[]>;
 
-    "balanceOfBatch(address[],uint256[])"(
+    'balanceOfBatch(address[],uint256[])'(
       owners: string[],
       ids: BigNumberish[],
       overrides?: CallOverrides
@@ -486,7 +469,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    "isApprovedForAll(address,address)"(
+    'isApprovedForAll(address,address)'(
       account: string,
       operator: string,
       overrides?: CallOverrides
@@ -501,7 +484,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)'(
       from: string,
       to: string,
       ids: BigNumberish[],
@@ -519,7 +502,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+    'safeTransferFrom(address,address,uint256,uint256,bytes)'(
       from: string,
       to: string,
       id: BigNumberish,
@@ -534,7 +517,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "setApprovalForAll(address,bool)"(
+    'setApprovalForAll(address,bool)'(
       operator: string,
       approved: boolean,
       overrides?: CallOverrides
@@ -545,21 +528,14 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<boolean>;
-
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-    "uri(uint256)"(
-      arg0: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
   };
 
   filters: {
-    "ApprovalForAll(address,address,bool)"(
+    'ApprovalForAll(address,address,bool)'(
       _owner?: string | null,
       _operator?: string | null,
       _approved?: null
@@ -570,7 +546,7 @@ export interface ERC1155 extends BaseContract {
       _approved?: null
     ): ApprovalForAllEventFilter;
 
-    "TransferBatch(address,address,address,uint256[],uint256[])"(
+    'TransferBatch(address,address,address,uint256[],uint256[])'(
       _operator?: string | null,
       _from?: string | null,
       _to?: string | null,
@@ -585,7 +561,7 @@ export interface ERC1155 extends BaseContract {
       _values?: null
     ): TransferBatchEventFilter;
 
-    "TransferSingle(address,address,address,uint256,uint256)"(
+    'TransferSingle(address,address,address,uint256,uint256)'(
       _operator?: string | null,
       _from?: string | null,
       _to?: string | null,
@@ -600,7 +576,7 @@ export interface ERC1155 extends BaseContract {
       _value?: null
     ): TransferSingleEventFilter;
 
-    "URI(string,uint256)"(
+    'URI(string,uint256)'(
       _value?: null,
       _id?: BigNumberish | null
     ): URIEventFilter;
@@ -614,7 +590,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "_approvals(address,address)"(
+    '_approvals(address,address)'(
       arg0: string,
       arg1: string,
       overrides?: CallOverrides
@@ -626,7 +602,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "_balances(address,uint256)"(
+    '_balances(address,uint256)'(
       arg0: string,
       arg1: BigNumberish,
       overrides?: CallOverrides
@@ -638,7 +614,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "balanceOf(address,uint256)"(
+    'balanceOf(address,uint256)'(
       owner: string,
       id: BigNumberish,
       overrides?: CallOverrides
@@ -650,7 +626,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "balanceOfBatch(address[],uint256[])"(
+    'balanceOfBatch(address[],uint256[])'(
       owners: string[],
       ids: BigNumberish[],
       overrides?: CallOverrides
@@ -662,7 +638,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "isApprovedForAll(address,address)"(
+    'isApprovedForAll(address,address)'(
       account: string,
       operator: string,
       overrides?: CallOverrides
@@ -677,7 +653,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)'(
       from: string,
       to: string,
       ids: BigNumberish[],
@@ -695,7 +671,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+    'safeTransferFrom(address,address,uint256,uint256,bytes)'(
       from: string,
       to: string,
       id: BigNumberish,
@@ -710,7 +686,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "setApprovalForAll(address,bool)"(
+    'setApprovalForAll(address,bool)'(
       operator: string,
       approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -721,15 +697,8 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    uri(arg0: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
-
-    "uri(uint256)"(
-      arg0: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
@@ -741,7 +710,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "_approvals(address,address)"(
+    '_approvals(address,address)'(
       arg0: string,
       arg1: string,
       overrides?: CallOverrides
@@ -753,7 +722,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "_balances(address,uint256)"(
+    '_balances(address,uint256)'(
       arg0: string,
       arg1: BigNumberish,
       overrides?: CallOverrides
@@ -765,7 +734,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "balanceOf(address,uint256)"(
+    'balanceOf(address,uint256)'(
       owner: string,
       id: BigNumberish,
       overrides?: CallOverrides
@@ -777,7 +746,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "balanceOfBatch(address[],uint256[])"(
+    'balanceOfBatch(address[],uint256[])'(
       owners: string[],
       ids: BigNumberish[],
       overrides?: CallOverrides
@@ -789,7 +758,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "isApprovedForAll(address,address)"(
+    'isApprovedForAll(address,address)'(
       account: string,
       operator: string,
       overrides?: CallOverrides
@@ -804,7 +773,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)"(
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)'(
       from: string,
       to: string,
       ids: BigNumberish[],
@@ -822,7 +791,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "safeTransferFrom(address,address,uint256,uint256,bytes)"(
+    'safeTransferFrom(address,address,uint256,uint256,bytes)'(
       from: string,
       to: string,
       id: BigNumberish,
@@ -837,7 +806,7 @@ export interface ERC1155 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "setApprovalForAll(address,bool)"(
+    'setApprovalForAll(address,bool)'(
       operator: string,
       approved: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -848,18 +817,8 @@ export interface ERC1155 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    uri(
-      arg0: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    "uri(uint256)"(
-      arg0: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

@@ -21,14 +21,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Routable__factory>;
     getContractFactory(
-      name: "ERC165",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ERC165__factory>;
-    getContractFactory(
-      name: "IERC165",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC165__factory>;
-    getContractFactory(
       name: "IArbitrable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IArbitrable__factory>;
@@ -36,6 +28,14 @@ declare module "hardhat/types/runtime" {
       name: "IArbitrator",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IArbitrator__factory>;
+    getContractFactory(
+      name: "ERC165",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC165__factory>;
+    getContractFactory(
+      name: "IERC165",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC165__factory>;
     getContractFactory(
       name: "OwnableMock",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -49,6 +49,30 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.RoutableRouterMock__factory>;
     getContractFactory(
+      name: "PausableMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.PausableMock__factory>;
+    getContractFactory(
+      name: "ERC1155Mock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155Mock__factory>;
+    getContractFactory(
+      name: "ERC1155NonReceiverMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155NonReceiverMock__factory>;
+    getContractFactory(
+      name: "ERC1155ReceiverMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155ReceiverMock__factory>;
+    getContractFactory(
+      name: "ERC1155MetadataGlobalURIMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155MetadataGlobalURIMock__factory>;
+    getContractFactory(
+      name: "ERC1155MetadataMultipleURIMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155MetadataMultipleURIMock__factory>;
+    getContractFactory(
       name: "Pausable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Pausable__factory>;
@@ -56,6 +80,14 @@ declare module "hardhat/types/runtime" {
       name: "ERC1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC1155__factory>;
+    getContractFactory(
+      name: "ERC1155MetadataGlobalURI",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155MetadataGlobalURI__factory>;
+    getContractFactory(
+      name: "ERC1155MetadataMultipleURI",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155MetadataMultipleURI__factory>;
     getContractFactory(
       name: "IERC1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -80,16 +112,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.Routable>;
     getContractAt(
-      name: "ERC165",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ERC165>;
-    getContractAt(
-      name: "IERC165",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC165>;
-    getContractAt(
       name: "IArbitrable",
       address: string,
       signer?: ethers.Signer
@@ -99,6 +121,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IArbitrator>;
+    getContractAt(
+      name: "ERC165",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC165>;
+    getContractAt(
+      name: "IERC165",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC165>;
     getContractAt(
       name: "OwnableMock",
       address: string,
@@ -115,6 +147,36 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.RoutableRouterMock>;
     getContractAt(
+      name: "PausableMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.PausableMock>;
+    getContractAt(
+      name: "ERC1155Mock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155Mock>;
+    getContractAt(
+      name: "ERC1155NonReceiverMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155NonReceiverMock>;
+    getContractAt(
+      name: "ERC1155ReceiverMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155ReceiverMock>;
+    getContractAt(
+      name: "ERC1155MetadataGlobalURIMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155MetadataGlobalURIMock>;
+    getContractAt(
+      name: "ERC1155MetadataMultipleURIMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155MetadataMultipleURIMock>;
+    getContractAt(
       name: "Pausable",
       address: string,
       signer?: ethers.Signer
@@ -124,6 +186,16 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.ERC1155>;
+    getContractAt(
+      name: "ERC1155MetadataGlobalURI",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155MetadataGlobalURI>;
+    getContractAt(
+      name: "ERC1155MetadataMultipleURI",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155MetadataMultipleURI>;
     getContractAt(
       name: "IERC1155",
       address: string,

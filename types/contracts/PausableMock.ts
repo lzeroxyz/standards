@@ -16,8 +16,8 @@ import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
 import { Listener, Provider } from '@ethersproject/providers';
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
-export interface PausableInterface extends utils.Interface {
-  contractName: 'Pausable';
+export interface PausableMockInterface extends utils.Interface {
+  contractName: 'PausableMock';
   functions: {
     '_paused()': FunctionFragment;
     'pause()': FunctionFragment;
@@ -52,13 +52,13 @@ export type UnpausedEvent = TypedEvent<[string], { account: string }>;
 
 export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
 
-export interface Pausable extends BaseContract {
-  contractName: 'Pausable';
+export interface PausableMock extends BaseContract {
+  contractName: 'PausableMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: PausableInterface;
+  interface: PausableMockInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,

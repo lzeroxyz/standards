@@ -3,9 +3,14 @@
 /* eslint-disable */
 import { Signer, utils, Contract, ContractFactory, Overrides } from 'ethers';
 import { Provider, TransactionRequest } from '@ethersproject/providers';
-import type { Pausable, PausableInterface } from '../Pausable';
+import type { PausableMock, PausableMockInterface } from '../PausableMock';
 
 const _abi = [
+  {
+    inputs: [],
+    stateMutability: 'nonpayable',
+    type: 'constructor',
+  },
   {
     anonymous: false,
     inputs: [
@@ -75,53 +80,53 @@ const _abi = [
 ];
 
 const _bytecode =
-  '0x60806040526000805460ff1916905534801561001a57600080fd5b506101da8061002a6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806316c61ccc146100515780633f4ba83a146100725780635c975abb1461007c5780638456cb5914610087575b600080fd5b60005461005e9060ff1681565b604051901515815260200160405180910390f35b61007a61008f565b005b60005460ff1661005e565b61007a61011a565b60005460ff166100e65760405162461bcd60e51b815260206004820152601460248201527f5061757361626c653a206e6f742070617573656400000000000000000000000060448201526064015b60405180910390fd5b6000805460ff1916815560405133917f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa91a2565b60005460ff161561016d5760405162461bcd60e51b815260206004820152601060248201527f5061757361626c653a207061757365640000000000000000000000000000000060448201526064016100dd565b6000805460ff1916600117815560405133917f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a25891a256fea2646970667358221220dd4fa5dea886717d341c13edeeca3dc03478d489c67f6e6f2728a6354548f89564736f6c63430008040033';
+  '0x60806040526000805460ff1916905534801561001a57600080fd5b506101da8061002a6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806316c61ccc146100515780633f4ba83a146100725780635c975abb1461007c5780638456cb5914610087575b600080fd5b60005461005e9060ff1681565b604051901515815260200160405180910390f35b61007a61008f565b005b60005460ff1661005e565b61007a61011a565b60005460ff166100e65760405162461bcd60e51b815260206004820152601460248201527f5061757361626c653a206e6f742070617573656400000000000000000000000060448201526064015b60405180910390fd5b6000805460ff1916815560405133917f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa91a2565b60005460ff161561016d5760405162461bcd60e51b815260206004820152601060248201527f5061757361626c653a207061757365640000000000000000000000000000000060448201526064016100dd565b6000805460ff1916600117815560405133917f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a25891a256fea264697066735822122031e8280c989684424759251fedd6ada6abcdb92de49114873b95699650cd0e8864736f6c63430008040033';
 
-type PausableConstructorParams =
+type PausableMockConstructorParams =
   | [signer?: Signer]
   | ConstructorParameters<typeof ContractFactory>;
 
 const isSuperArgs = (
-  xs: PausableConstructorParams
+  xs: PausableMockConstructorParams
 ): xs is ConstructorParameters<typeof ContractFactory> => xs.length > 1;
 
-export class Pausable__factory extends ContractFactory {
-  constructor(...args: PausableConstructorParams) {
+export class PausableMock__factory extends ContractFactory {
+  constructor(...args: PausableMockConstructorParams) {
     if (isSuperArgs(args)) {
       super(...args);
     } else {
       super(_abi, _bytecode, args[0]);
     }
-    this.contractName = 'Pausable';
+    this.contractName = 'PausableMock';
   }
 
   deploy(
     overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<Pausable> {
-    return super.deploy(overrides || {}) as Promise<Pausable>;
+  ): Promise<PausableMock> {
+    return super.deploy(overrides || {}) as Promise<PausableMock>;
   }
   getDeployTransaction(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): TransactionRequest {
     return super.getDeployTransaction(overrides || {});
   }
-  attach(address: string): Pausable {
-    return super.attach(address) as Pausable;
+  attach(address: string): PausableMock {
+    return super.attach(address) as PausableMock;
   }
-  connect(signer: Signer): Pausable__factory {
-    return super.connect(signer) as Pausable__factory;
+  connect(signer: Signer): PausableMock__factory {
+    return super.connect(signer) as PausableMock__factory;
   }
-  static readonly contractName: 'Pausable';
-  public readonly contractName: 'Pausable';
+  static readonly contractName: 'PausableMock';
+  public readonly contractName: 'PausableMock';
   static readonly bytecode = _bytecode;
   static readonly abi = _abi;
-  static createInterface(): PausableInterface {
-    return new utils.Interface(_abi) as PausableInterface;
+  static createInterface(): PausableMockInterface {
+    return new utils.Interface(_abi) as PausableMockInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): Pausable {
-    return new Contract(address, _abi, signerOrProvider) as Pausable;
+  ): PausableMock {
+    return new Contract(address, _abi, signerOrProvider) as PausableMock;
   }
 }

@@ -9,26 +9,26 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface RoutableInterface extends utils.Interface {
-  contractName: "Routable";
+  contractName: 'Routable';
   functions: {
-    "router()": FunctionFragment;
+    'router()': FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "router", values?: undefined): string;
+  encodeFunctionData(functionFragment: 'router', values?: undefined): string;
 
-  decodeFunctionResult(functionFragment: "router", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'router', data: BytesLike): Result;
 
   events: {
-    "RouterTransferred(address,address)": EventFragment;
+    'RouterTransferred(address,address)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "RouterTransferred"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RouterTransferred'): EventFragment;
 }
 
 export type RouterTransferredEvent = TypedEvent<
@@ -40,7 +40,7 @@ export type RouterTransferredEventFilter =
   TypedEventFilter<RouterTransferredEvent>;
 
 export interface Routable extends BaseContract {
-  contractName: "Routable";
+  contractName: 'Routable';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -69,21 +69,21 @@ export interface Routable extends BaseContract {
   functions: {
     router(overrides?: CallOverrides): Promise<[string]>;
 
-    "router()"(overrides?: CallOverrides): Promise<[string]>;
+    'router()'(overrides?: CallOverrides): Promise<[string]>;
   };
 
   router(overrides?: CallOverrides): Promise<string>;
 
-  "router()"(overrides?: CallOverrides): Promise<string>;
+  'router()'(overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
     router(overrides?: CallOverrides): Promise<string>;
 
-    "router()"(overrides?: CallOverrides): Promise<string>;
+    'router()'(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
-    "RouterTransferred(address,address)"(
+    'RouterTransferred(address,address)'(
       previousRouter?: string | null,
       newRouter?: string | null
     ): RouterTransferredEventFilter;
@@ -96,12 +96,12 @@ export interface Routable extends BaseContract {
   estimateGas: {
     router(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "router()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'router()'(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     router(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "router()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'router()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

@@ -2,91 +2,91 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from 'ethers';
+import { Provider } from '@ethersproject/providers';
 import type {
   IERC1155TokenReceiver,
   IERC1155TokenReceiverInterface,
-} from "../IERC1155TokenReceiver";
+} from '../IERC1155TokenReceiver';
 
 const _abi = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "_operator",
-        type: "address",
+        internalType: 'address',
+        name: '_operator',
+        type: 'address',
       },
       {
-        internalType: "address",
-        name: "_from",
-        type: "address",
+        internalType: 'address',
+        name: '_from',
+        type: 'address',
       },
       {
-        internalType: "uint256[]",
-        name: "_ids",
-        type: "uint256[]",
+        internalType: 'uint256[]',
+        name: '_ids',
+        type: 'uint256[]',
       },
       {
-        internalType: "uint256[]",
-        name: "_values",
-        type: "uint256[]",
+        internalType: 'uint256[]',
+        name: '_values',
+        type: 'uint256[]',
       },
       {
-        internalType: "bytes",
-        name: "_data",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_data',
+        type: 'bytes',
       },
     ],
-    name: "onERC1155BatchReceived",
+    name: 'onERC1155BatchReceived',
     outputs: [
       {
-        internalType: "bytes4",
-        name: "",
-        type: "bytes4",
+        internalType: 'bytes4',
+        name: '',
+        type: 'bytes4',
       },
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "address",
-        name: "_operator",
-        type: "address",
+        internalType: 'address',
+        name: '_operator',
+        type: 'address',
       },
       {
-        internalType: "address",
-        name: "_from",
-        type: "address",
+        internalType: 'address',
+        name: '_from',
+        type: 'address',
       },
       {
-        internalType: "uint256",
-        name: "_id",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_id',
+        type: 'uint256',
       },
       {
-        internalType: "uint256",
-        name: "_value",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_value',
+        type: 'uint256',
       },
       {
-        internalType: "bytes",
-        name: "_data",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_data',
+        type: 'bytes',
       },
     ],
-    name: "onERC1155Received",
+    name: 'onERC1155Received',
     outputs: [
       {
-        internalType: "bytes4",
-        name: "",
-        type: "bytes4",
+        internalType: 'bytes4',
+        name: '',
+        type: 'bytes4',
       },
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
 ];
 

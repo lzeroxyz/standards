@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import { Provider } from "@ethersproject/providers";
-import type { IArbitrator, IArbitratorInterface } from "../IArbitrator";
+import { Contract, Signer, utils } from 'ethers';
+import { Provider } from '@ethersproject/providers';
+import type { IArbitrator, IArbitratorInterface } from '../IArbitrator';
 
 const _abi = [
   {
@@ -12,204 +12,204 @@ const _abi = [
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
         indexed: true,
-        internalType: "contract IArbitrable",
-        name: "_arbitrable",
-        type: "address",
+        internalType: 'contract IArbitrable',
+        name: '_arbitrable',
+        type: 'address',
       },
     ],
-    name: "AppealDecision",
-    type: "event",
+    name: 'AppealDecision',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
         indexed: true,
-        internalType: "contract IArbitrable",
-        name: "_arbitrable",
-        type: "address",
+        internalType: 'contract IArbitrable',
+        name: '_arbitrable',
+        type: 'address',
       },
     ],
-    name: "AppealPossible",
-    type: "event",
+    name: 'AppealPossible',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
         indexed: true,
-        internalType: "contract IArbitrable",
-        name: "_arbitrable",
-        type: "address",
+        internalType: 'contract IArbitrable',
+        name: '_arbitrable',
+        type: 'address',
       },
     ],
-    name: "DisputeCreation",
-    type: "event",
+    name: 'DisputeCreation',
+    type: 'event',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
-        internalType: "bytes",
-        name: "_extraData",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_extraData',
+        type: 'bytes',
       },
     ],
-    name: "appeal",
+    name: 'appeal',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
-        internalType: "bytes",
-        name: "_extraData",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_extraData',
+        type: 'bytes',
       },
     ],
-    name: "appealCost",
+    name: 'appealCost',
     outputs: [
       {
-        internalType: "uint256",
-        name: "cost",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'cost',
+        type: 'uint256',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
     ],
-    name: "appealPeriod",
+    name: 'appealPeriod',
     outputs: [
       {
-        internalType: "uint256",
-        name: "start",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'start',
+        type: 'uint256',
       },
       {
-        internalType: "uint256",
-        name: "end",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'end',
+        type: 'uint256',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "bytes",
-        name: "_extraData",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_extraData',
+        type: 'bytes',
       },
     ],
-    name: "arbitrationCost",
+    name: 'arbitrationCost',
     outputs: [
       {
-        internalType: "uint256",
-        name: "cost",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'cost',
+        type: 'uint256',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_choices",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_choices',
+        type: 'uint256',
       },
       {
-        internalType: "bytes",
-        name: "_extraData",
-        type: "bytes",
+        internalType: 'bytes',
+        name: '_extraData',
+        type: 'bytes',
       },
     ],
-    name: "createDispute",
+    name: 'createDispute',
     outputs: [
       {
-        internalType: "uint256",
-        name: "disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'disputeID',
+        type: 'uint256',
       },
     ],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
     ],
-    name: "currentRuling",
+    name: 'currentRuling',
     outputs: [
       {
-        internalType: "uint256",
-        name: "ruling",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'ruling',
+        type: 'uint256',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
     ],
-    name: "disputeStatus",
+    name: 'disputeStatus',
     outputs: [
       {
-        internalType: "enum IArbitrator.DisputeStatus",
-        name: "status",
-        type: "uint8",
+        internalType: 'enum IArbitrator.DisputeStatus',
+        name: 'status',
+        type: 'uint8',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
 ];
 

@@ -17,8 +17,8 @@ import { FunctionFragment, Result } from '@ethersproject/abi';
 import { Listener, Provider } from '@ethersproject/providers';
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
-export interface IERC1155TokenReceiverInterface extends utils.Interface {
-  contractName: 'IERC1155TokenReceiver';
+export interface ERC1155ReceiverMockInterface extends utils.Interface {
+  contractName: 'ERC1155ReceiverMock';
   functions: {
     'onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)': FunctionFragment;
     'onERC1155Received(address,address,uint256,uint256,bytes)': FunctionFragment;
@@ -45,13 +45,13 @@ export interface IERC1155TokenReceiverInterface extends utils.Interface {
   events: {};
 }
 
-export interface IERC1155TokenReceiver extends BaseContract {
-  contractName: 'IERC1155TokenReceiver';
+export interface ERC1155ReceiverMock extends BaseContract {
+  contractName: 'ERC1155ReceiverMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: IERC1155TokenReceiverInterface;
+  interface: ERC1155ReceiverMockInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,

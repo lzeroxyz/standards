@@ -9,24 +9,24 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface IERC165Interface extends utils.Interface {
-  contractName: "IERC165";
+  contractName: 'IERC165';
   functions: {
-    "supportsInterface(bytes4)": FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "supportsInterface",
+    functionFragment: 'supportsInterface',
     values: [BytesLike]
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "supportsInterface",
+    functionFragment: 'supportsInterface',
     data: BytesLike
   ): Result;
 
@@ -34,7 +34,7 @@ export interface IERC165Interface extends utils.Interface {
 }
 
 export interface IERC165 extends BaseContract {
-  contractName: "IERC165";
+  contractName: 'IERC165';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -66,7 +66,7 @@ export interface IERC165 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceID: BytesLike,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
@@ -77,7 +77,7 @@ export interface IERC165 extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  "supportsInterface(bytes4)"(
+  'supportsInterface(bytes4)'(
     interfaceID: BytesLike,
     overrides?: CallOverrides
   ): Promise<boolean>;
@@ -88,7 +88,7 @@ export interface IERC165 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceID: BytesLike,
       overrides?: CallOverrides
     ): Promise<boolean>;
@@ -102,7 +102,7 @@ export interface IERC165 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceID: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -114,7 +114,7 @@ export interface IERC165 extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "supportsInterface(bytes4)"(
+    'supportsInterface(bytes4)'(
       interfaceID: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import { Provider } from "@ethersproject/providers";
-import type { IArbitrable, IArbitrableInterface } from "../IArbitrable";
+import { Contract, Signer, utils } from 'ethers';
+import { Provider } from '@ethersproject/providers';
+import type { IArbitrable, IArbitrableInterface } from '../IArbitrable';
 
 const _abi = [
   {
@@ -12,43 +12,43 @@ const _abi = [
     inputs: [
       {
         indexed: true,
-        internalType: "contract IArbitrator",
-        name: "_arbitrator",
-        type: "address",
+        internalType: 'contract IArbitrator',
+        name: '_arbitrator',
+        type: 'address',
       },
       {
         indexed: true,
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "_ruling",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_ruling',
+        type: 'uint256',
       },
     ],
-    name: "Ruling",
-    type: "event",
+    name: 'Ruling',
+    type: 'event',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_disputeID",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_disputeID',
+        type: 'uint256',
       },
       {
-        internalType: "uint256",
-        name: "_ruling",
-        type: "uint256",
+        internalType: 'uint256',
+        name: '_ruling',
+        type: 'uint256',
       },
     ],
-    name: "rule",
+    name: 'rule',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
 ];
 

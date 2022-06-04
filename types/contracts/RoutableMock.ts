@@ -11,53 +11,53 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface RoutableMockInterface extends utils.Interface {
-  contractName: "RoutableMock";
+  contractName: 'RoutableMock';
   functions: {
-    "openFunction()": FunctionFragment;
-    "routedFunction()": FunctionFragment;
-    "router()": FunctionFragment;
-    "transferRouter(address)": FunctionFragment;
+    'openFunction()': FunctionFragment;
+    'routedFunction()': FunctionFragment;
+    'router()': FunctionFragment;
+    'transferRouter(address)': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "routedFunction",
+    functionFragment: 'routedFunction',
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "router", values?: undefined): string;
+  encodeFunctionData(functionFragment: 'router', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "transferRouter",
+    functionFragment: 'transferRouter',
     values: [string]
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "routedFunction",
+    functionFragment: 'routedFunction',
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "router", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'router', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "transferRouter",
+    functionFragment: 'transferRouter',
     data: BytesLike
   ): Result;
 
   events: {
-    "RouterTransferred(address,address)": EventFragment;
+    'RouterTransferred(address,address)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "RouterTransferred"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RouterTransferred'): EventFragment;
 }
 
 export type RouterTransferredEvent = TypedEvent<
@@ -69,7 +69,7 @@ export type RouterTransferredEventFilter =
   TypedEventFilter<RouterTransferredEvent>;
 
 export interface RoutableMock extends BaseContract {
-  contractName: "RoutableMock";
+  contractName: 'RoutableMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -98,22 +98,22 @@ export interface RoutableMock extends BaseContract {
   functions: {
     openFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'openFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
 
     routedFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
 
     router(overrides?: CallOverrides): Promise<[string]>;
 
-    "router()"(overrides?: CallOverrides): Promise<[string]>;
+    'router()'(overrides?: CallOverrides): Promise<[string]>;
 
     transferRouter(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "transferRouter(address)"(
+    'transferRouter(address)'(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -121,22 +121,22 @@ export interface RoutableMock extends BaseContract {
 
   openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   routedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "routedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'routedFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   router(overrides?: CallOverrides): Promise<string>;
 
-  "router()"(overrides?: CallOverrides): Promise<string>;
+  'router()'(overrides?: CallOverrides): Promise<string>;
 
   transferRouter(
     newRouter: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "transferRouter(address)"(
+  'transferRouter(address)'(
     newRouter: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -144,26 +144,26 @@ export interface RoutableMock extends BaseContract {
   callStatic: {
     openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
     routedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
     router(overrides?: CallOverrides): Promise<string>;
 
-    "router()"(overrides?: CallOverrides): Promise<string>;
+    'router()'(overrides?: CallOverrides): Promise<string>;
 
     transferRouter(newRouter: string, overrides?: CallOverrides): Promise<void>;
 
-    "transferRouter(address)"(
+    'transferRouter(address)'(
       newRouter: string,
       overrides?: CallOverrides
     ): Promise<void>;
   };
 
   filters: {
-    "RouterTransferred(address,address)"(
+    'RouterTransferred(address,address)'(
       previousRouter?: string | null,
       newRouter?: string | null
     ): RouterTransferredEventFilter;
@@ -176,22 +176,22 @@ export interface RoutableMock extends BaseContract {
   estimateGas: {
     openFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'openFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     routedFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "routedFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'routedFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     router(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "router()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'router()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferRouter(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "transferRouter(address)"(
+    'transferRouter(address)'(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -200,24 +200,24 @@ export interface RoutableMock extends BaseContract {
   populateTransaction: {
     openFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'openFunction()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     routedFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "routedFunction()"(
+    'routedFunction()'(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     router(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "router()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'router()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferRouter(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "transferRouter(address)"(
+    'transferRouter(address)'(
       newRouter: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

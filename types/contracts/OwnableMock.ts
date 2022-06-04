@@ -11,53 +11,53 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface OwnableMockInterface extends utils.Interface {
-  contractName: "OwnableMock";
+  contractName: 'OwnableMock';
   functions: {
-    "openFunction()": FunctionFragment;
-    "ownedFunction()": FunctionFragment;
-    "owner()": FunctionFragment;
-    "transferOwnership(address)": FunctionFragment;
+    'openFunction()': FunctionFragment;
+    'ownedFunction()': FunctionFragment;
+    'owner()': FunctionFragment;
+    'transferOwnership(address)': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "ownedFunction",
+    functionFragment: 'ownedFunction',
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(functionFragment: 'owner', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "transferOwnership",
+    functionFragment: 'transferOwnership',
     values: [string]
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "openFunction",
+    functionFragment: 'openFunction',
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "ownedFunction",
+    functionFragment: 'ownedFunction',
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'owner', data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "transferOwnership",
+    functionFragment: 'transferOwnership',
     data: BytesLike
   ): Result;
 
   events: {
-    "OwnershipTransferred(address,address)": EventFragment;
+    'OwnershipTransferred(address,address)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'OwnershipTransferred'): EventFragment;
 }
 
 export type OwnershipTransferredEvent = TypedEvent<
@@ -69,7 +69,7 @@ export type OwnershipTransferredEventFilter =
   TypedEventFilter<OwnershipTransferredEvent>;
 
 export interface OwnableMock extends BaseContract {
-  contractName: "OwnableMock";
+  contractName: 'OwnableMock';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -98,22 +98,22 @@ export interface OwnableMock extends BaseContract {
   functions: {
     openFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'openFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
 
     ownedFunction(overrides?: CallOverrides): Promise<[boolean]>;
 
-    "ownedFunction()"(overrides?: CallOverrides): Promise<[boolean]>;
+    'ownedFunction()'(overrides?: CallOverrides): Promise<[boolean]>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    "owner()"(overrides?: CallOverrides): Promise<[string]>;
+    'owner()'(overrides?: CallOverrides): Promise<[string]>;
 
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "transferOwnership(address)"(
+    'transferOwnership(address)'(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -121,22 +121,22 @@ export interface OwnableMock extends BaseContract {
 
   openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   ownedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-  "ownedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+  'ownedFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  "owner()"(overrides?: CallOverrides): Promise<string>;
+  'owner()'(overrides?: CallOverrides): Promise<string>;
 
   transferOwnership(
     newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "transferOwnership(address)"(
+  'transferOwnership(address)'(
     newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -144,29 +144,29 @@ export interface OwnableMock extends BaseContract {
   callStatic: {
     openFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'openFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
     ownedFunction(overrides?: CallOverrides): Promise<boolean>;
 
-    "ownedFunction()"(overrides?: CallOverrides): Promise<boolean>;
+    'ownedFunction()'(overrides?: CallOverrides): Promise<boolean>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    "owner()"(overrides?: CallOverrides): Promise<string>;
+    'owner()'(overrides?: CallOverrides): Promise<string>;
 
     transferOwnership(
       newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "transferOwnership(address)"(
+    'transferOwnership(address)'(
       newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
   };
 
   filters: {
-    "OwnershipTransferred(address,address)"(
+    'OwnershipTransferred(address,address)'(
       previousOwner?: string | null,
       newOwner?: string | null
     ): OwnershipTransferredEventFilter;
@@ -179,22 +179,22 @@ export interface OwnableMock extends BaseContract {
   estimateGas: {
     openFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'openFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     ownedFunction(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "ownedFunction()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'ownedFunction()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "owner()"(overrides?: CallOverrides): Promise<BigNumber>;
+    'owner()'(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "transferOwnership(address)"(
+    'transferOwnership(address)'(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -203,22 +203,22 @@ export interface OwnableMock extends BaseContract {
   populateTransaction: {
     openFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "openFunction()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'openFunction()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ownedFunction(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "ownedFunction()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'ownedFunction()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "owner()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    'owner()'(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "transferOwnership(address)"(
+    'transferOwnership(address)'(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

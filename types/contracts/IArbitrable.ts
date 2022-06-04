@@ -12,29 +12,29 @@ import {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
-import { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
-import { Listener, Provider } from "@ethersproject/providers";
-import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
+} from 'ethers';
+import { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import { Listener, Provider } from '@ethersproject/providers';
+import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from './common';
 
 export interface IArbitrableInterface extends utils.Interface {
-  contractName: "IArbitrable";
+  contractName: 'IArbitrable';
   functions: {
-    "rule(uint256,uint256)": FunctionFragment;
+    'rule(uint256,uint256)': FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "rule",
+    functionFragment: 'rule',
     values: [BigNumberish, BigNumberish]
   ): string;
 
-  decodeFunctionResult(functionFragment: "rule", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'rule', data: BytesLike): Result;
 
   events: {
-    "Ruling(address,uint256,uint256)": EventFragment;
+    'Ruling(address,uint256,uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "Ruling"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'Ruling'): EventFragment;
 }
 
 export type RulingEvent = TypedEvent<
@@ -45,7 +45,7 @@ export type RulingEvent = TypedEvent<
 export type RulingEventFilter = TypedEventFilter<RulingEvent>;
 
 export interface IArbitrable extends BaseContract {
-  contractName: "IArbitrable";
+  contractName: 'IArbitrable';
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -78,7 +78,7 @@ export interface IArbitrable extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    "rule(uint256,uint256)"(
+    'rule(uint256,uint256)'(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -91,7 +91,7 @@ export interface IArbitrable extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  "rule(uint256,uint256)"(
+  'rule(uint256,uint256)'(
     _disputeID: BigNumberish,
     _ruling: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -104,7 +104,7 @@ export interface IArbitrable extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    "rule(uint256,uint256)"(
+    'rule(uint256,uint256)'(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: CallOverrides
@@ -112,7 +112,7 @@ export interface IArbitrable extends BaseContract {
   };
 
   filters: {
-    "Ruling(address,uint256,uint256)"(
+    'Ruling(address,uint256,uint256)'(
       _arbitrator?: string | null,
       _disputeID?: BigNumberish | null,
       _ruling?: null
@@ -131,7 +131,7 @@ export interface IArbitrable extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    "rule(uint256,uint256)"(
+    'rule(uint256,uint256)'(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -145,7 +145,7 @@ export interface IArbitrable extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    "rule(uint256,uint256)"(
+    'rule(uint256,uint256)'(
       _disputeID: BigNumberish,
       _ruling: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
