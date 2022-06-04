@@ -8,7 +8,7 @@ import "./IERC1155TokenReceiver.sol";
 import "../../ERC165/ERC165.sol";
 
 /// @title Minimalist standard ERC1155 implementation.
-contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
+contract ERC1155 is IERC1155, ERC165 {
   /// @notice Represents the balances of the token holders by the token ids.
   /// @dev Mapping address:tokenId:balance
   mapping(address => mapping(uint256 => uint256)) public _balances;
@@ -16,19 +16,6 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
   /// @notice Represents the approvals of the token owners to the operators.
   /// @dev Mapping address:operatorAddress:approved
   mapping(address => mapping(address => bool)) public _approvals;
-
-  /// @notice Store a generic uri for all the tokens
-  string private _uri;
-
-  constructor(string memory tokenUri) {
-    _setURI(tokenUri);
-  }
-
-  /// @inheritdoc IERC1155MetadataURI
-  /// @dev See {IERC1155MetadataURI-uri }
-  function uri(uint256) external view virtual override returns (string memory) {
-    return _uri;
-  }
 
   /**
    * @inheritdoc IERC1155
@@ -99,9 +86,9 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
 
     require(
       to.code.length == 0
-        ? IERC1155TokenReceiver(to).onERC1155Received(msg.sender, from, id, amount, data) ==
-          IERC1155TokenReceiver.onERC1155BatchReceived.selector
-        : to != address(0),
+        ? to != address(0)
+        : IERC1155TokenReceiver(to).onERC1155Received(msg.sender, from, id, amount, data) ==
+          IERC1155TokenReceiver.onERC1155Received.selector,
       "ERC1155: Unsafe recipient"
     );
   }
@@ -128,7 +115,7 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
       tokenId = ids[i];
       tokenAmount = amounts[i];
 
-      _balances[from][tokenId] -= tokenId;
+      _balances[from][tokenId] -= tokenAmount;
       _balances[to][tokenId] += tokenAmount;
 
       // An array can't have a total length
@@ -142,9 +129,9 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
 
     require(
       to.code.length == 0
-        ? IERC1155TokenReceiver(to).onERC1155BatchReceived(msg.sender, from, ids, amounts, data) ==
-          IERC1155TokenReceiver.onERC1155BatchReceived.selector
-        : to != address(0),
+        ? to != address(0)
+        : IERC1155TokenReceiver(to).onERC1155BatchReceived(msg.sender, from, ids, amounts, data) ==
+          IERC1155TokenReceiver.onERC1155BatchReceived.selector,
       "ERC1155: Unsafe recipient"
     );
   }
@@ -154,10 +141,6 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
       interfaceId == 0x01ffc9a7 || // ERC165 Interface ID for ERC165
       interfaceId == 0xd9b67a26 || // ERC165 Interface ID for ERC1155
       interfaceId == 0x0e89341c; // ERC165 Interface ID for ERC1155MetadataURI
-  }
-
-  function _setURI(string memory newUri) internal virtual {
-    _uri = newUri;
   }
 
   function _mint(
@@ -199,7 +182,7 @@ contract ERC1155 is IERC1155, IERC1155MetadataURI, ERC165 {
       to.code.length == 0
         ? to != address(0)
         : IERC1155TokenReceiver(to).onERC1155BatchReceived(msg.sender, address(0), ids, amounts, data) ==
-          IERC1155TokenReceiver.onERC1155Received.selector,
+          IERC1155TokenReceiver.onERC1155BatchReceived.selector,
       "ERC1155: Unsafe recipient"
     );
   }
