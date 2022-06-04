@@ -25,6 +25,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: mkdir config && echo "${{ secrets.accounts }}" > ./config/accounts.json
+      - run: mkdir config
+      - name: Create Config accounts json
+        id: create-json
+        uses: devops-actions/json-to-file@v1.0.0
+        with:
+          filename: 'config/accounts.json'
+          json: ${{ secrets.ACCOUNTS }}
       - run: npm install
       - run: npm test
