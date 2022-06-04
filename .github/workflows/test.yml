@@ -25,6 +25,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: mkdir config && echo ${{ secrets.accounts }} > ./config/accounts.json
+      - run: mkdir config && echo "${{ secrets.accounts }}" > ./config/accounts.json
       - run: npm install
       - run: npm test
