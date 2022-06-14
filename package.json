@@ -1,5 +1,5 @@
 {
-  "name": "@lzero/contract-standards",
+  "name": "@lzero-protocol/contract-standards",
   "publishConfig": {
     "access": "public"
   },
