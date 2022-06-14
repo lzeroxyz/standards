@@ -1,5 +1,8 @@
 {
   "name": "@lzero/contract-standards",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.0",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
