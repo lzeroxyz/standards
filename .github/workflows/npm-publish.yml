@@ -5,18 +5,25 @@ on:
     types: [created]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: mkdir config
+      - name: Create Config accounts json
+        id: create-json
+        uses: devops-actions/json-to-file@v1.0.0
+        with:
+          filename: 'config/accounts.json'
+          json: ${{ secrets.ACCOUNTS }}
       - run: npm ci
       - run: npm test
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
